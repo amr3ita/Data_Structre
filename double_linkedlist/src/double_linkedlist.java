@@ -136,19 +136,6 @@ public class double_linkedlist {
     }
 
     public static void main(String[] args) throws Exception {
-        double_linkedlist newnode = new double_linkedlist();
-        newnode.insertlast(4);
-        newnode.insertfirst(5);
-        newnode.insertfirst(10);
-        newnode.insertlast(7);
-        newnode.insertlast(3);
-        newnode.insertposition(5, 2);
-        newnode.deletefirst();
-        newnode.deletelast();
-        newnode.deleteitem(7);
-        newnode.search(2);
-
-        newnode.display();
 
     }
 }
