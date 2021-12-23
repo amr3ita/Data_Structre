@@ -1,10 +1,10 @@
-
 class Node {
     int data;
     Node next;
+    Node prev;
 }
 
-public class linkedlist {
+public class double_linkedlist {
     Node first;
     Node last;
     int size = 0;
@@ -16,22 +16,25 @@ public class linkedlist {
     public void insertfirst(int value) {
         Node newnode = new Node();
         newnode.data = value;
-        if (size == 0) {
+        if (first == null) {
             last = newnode;
+        } else {
+            newnode.next = first;
+            first.prev = newnode;
         }
-        newnode.next = first;
         first = newnode;
         size++;
     }
 
     public void insertlast(int value) {
+        if (last == null) {
+            insertfirst(value);
+            return;
+        }
         Node newnode = new Node();
         newnode.data = value;
-        if (size == 0) {
-            first = newnode;
-        } else {
-            last.next = newnode;
-        }
+        last.next = newnode;
+        newnode.prev = last;
         last = newnode;
         size++;
     }
@@ -47,14 +50,15 @@ public class linkedlist {
             return;
         } else if (pos > 0 && pos < size) {
             Node current = first;
-            for (int i = 0; i < pos - 1; ++i) {
+            for (int i = 0; i < pos - 1; i++) {
                 current = current.next;
             }
             Node newnode = new Node();
             newnode.data = value;
             newnode.next = current.next;
+            newnode.prev = current;
+            current.next.prev = newnode;
             current.next = newnode;
-            size++;
         }
     }
 
@@ -63,8 +67,9 @@ public class linkedlist {
             return;
         } else if (size == 1) {
             first = last = null;
-        } else {
+        } else if (size > 1) {
             first = first.next;
+            first.prev = null;
         }
         size--;
     }
@@ -74,12 +79,9 @@ public class linkedlist {
             return;
         } else if (size == 1) {
             first = last = null;
-        } else {
-            Node current = first;
-            while (current.next != last) {
-                current = current.next;
-            }
-            current.next = null;
+        } else if (size > 1) {
+            last = last.prev;
+            last.next = null;
         }
         size--;
     }
@@ -99,12 +101,14 @@ public class linkedlist {
 
         Node current = first;
         while (current.next != null) {
-            if (current.next.data == key) {
+            if (current.data == key) {
                 break;
             }
             current = current.next;
         }
-        current.next = current.next.next;
+
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
         size--;
     }
 
@@ -131,7 +135,20 @@ public class linkedlist {
         System.out.println();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        double_linkedlist newnode = new double_linkedlist();
+        newnode.insertlast(4);
+        newnode.insertfirst(5);
+        newnode.insertfirst(10);
+        newnode.insertlast(7);
+        newnode.insertlast(3);
+        newnode.insertposition(5, 2);
+        newnode.deletefirst();
+        newnode.deletelast();
+        newnode.deleteitem(7);
+        newnode.search(2);
+
+        newnode.display();
 
     }
 }

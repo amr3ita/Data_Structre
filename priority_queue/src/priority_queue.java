@@ -1,4 +1,4 @@
-class priority_queue {
+public class priority_queue {
     private int s;
     private int[] ar;
     private int nelm;

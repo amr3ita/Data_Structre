@@ -1,4 +1,3 @@
-
 class queue {
   private int s;
   private int f, b;
@@ -42,17 +41,6 @@ class queue {
   }
 
   public static void main(String[] args) {
-    queue q = new queue(3);
-    q.push(10);
-    q.push(50);
-    q.push(30);
-    System.out.println(q.top());
-    q.pop();
-    System.out.println(q.top());
-    q.pop();
-    System.out.println(q.top());
-    q.pop();
-    q.push(40);
-    System.out.println(q.pop());
+
   }
 }

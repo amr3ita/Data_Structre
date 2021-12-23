@@ -49,13 +49,6 @@ class circular_queue {
     }
 
     public static void main(String[] args) {
-        circular_queue cq = new circular_queue(3);
-        cq.push(10);
-        cq.push(50);
-        cq.push(30);
-        System.out.println(cq.pop());
-        cq.push(20);
-        System.out.println(cq.pop());
-        cq.push(40);
+
     }
 }
