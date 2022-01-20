@@ -12,7 +12,7 @@ public class priority_queue {
     }
 
     public boolean isfull() {
-        return (nelm == ar.length);
+        return (nelm == s);
     }
 
     public void push(int x) {
