@@ -29,7 +29,7 @@ public class stack {
         return (nelm == 0);
     }
 
-    public int peek() {
+    public int pop() {
         if (!isempty()) {
             nelm--;
             return ar[top--];
@@ -38,7 +38,7 @@ public class stack {
         }
     }
 
-    public int top() {
+    public int peek() {
         if (!isempty()) {
             return ar[top];
         } else {
@@ -47,7 +47,7 @@ public class stack {
     }
     public void display() {
     for (int i = top; i >= 0; i--) {
-      System.out.print(arr[i] + " ");
+      System.out.print(ar[i] + " ");
        }
         System.out.println();
     }
