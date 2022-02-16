@@ -29,7 +29,7 @@ public class stack {
         return (nelm == 0);
     }
 
-    public int pop() {
+    public int peek() {
         if (!isempty()) {
             nelm--;
             return ar[top--];
@@ -60,7 +60,7 @@ public class stack {
         s.push(10);
         s.push(5);
         for (int i = 0; i < 4; i++) {
-            System.out.print(s.top() + " ");
+            System.out.print(s.peek() + " ");
             s.pop();
         }
 
